@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --headerHeight: 101px;
     --footerHeight: 34px;
+    --animationTiming: .4s;
   }
 
   * {
@@ -32,6 +33,11 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #E5E5E5;
+    overflow-x: hidden;
+  }
+
+  button {
+    cursor: pointer;
   }
 `
 

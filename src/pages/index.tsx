@@ -11,10 +11,14 @@ import Header from '@/components/header'
 import LogoMKS from '@/components/logoMKS'
 import Footer from '@/components/footer'
 
+import ShopCard from '@/components/shopcard';
+import Cart from '@/components/cart';
+
 const StyledMain = styled.main`
   min-height: calc( 100vh - var(--footerHeight) );
   padding-top: var(--headerHeight);
   position: relative;
+  z-index: -1;
 `
 type Data = { }
 
@@ -27,7 +31,7 @@ type Props = {
 const Home: NextPageWithLayout<Props> = (props) => {
   return <>
   <StyledMain>
-
+  <ShopCard/>
   </StyledMain>
   </>
 }
@@ -37,7 +41,7 @@ Home.getLayout = function getLayout(page: ReactElement) {
   <Head>
     <title>MKS Sistemas</title>
   </Head>
-  <Header logo={<LogoMKS/>} carrinho={<button>Carrinho</button>}/>
+  <Header logo={<LogoMKS/>} carrinho={<Cart/>}/>
     {page}
   <Footer/>
   </>

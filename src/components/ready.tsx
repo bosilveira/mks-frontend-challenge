@@ -19,7 +19,7 @@ function Ready() {
         router.isReady && console.log('isReady')
     },[router])
     
-    return isPageLoading ? (<StyledLoading> Ready </StyledLoading>) : <React.Fragment></React.Fragment>
+    return isPageLoading ? (<StyledLoading> Ready </StyledLoading>) : null
 
   }
   
