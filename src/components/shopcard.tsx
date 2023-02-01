@@ -96,7 +96,7 @@ const StyledDiv = styled.div`
         font-size: 14px;
         color: #FFFFFF;
 
-        shoppin0bag {
+        shopping-bag {
             width: 12px;
             height: 13.5px;
             color: white;
@@ -138,7 +138,7 @@ export default function ShopCard( data: ShopCardInterface) {
             </div>
             <p className='description'>{data.description || 'Descrição do produto'}</p>
         </div>
-        <button type='button'><img className='shopping-bag' alt='comprar' src="/shopping-bag.png" width='12' height='14'/>Comprar</button>
+        <button type='button'><img className='shopping-bag' alt='comprar' src="/shopping-bag.png"/>Comprar</button>
       </StyledDiv>
     );
   }
