@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyledMain = styled.main`
+export const StyledShop = styled.main`
     position: absolute;
     width: 100%;
     height: 101px;
@@ -11,15 +11,3 @@ const StyledMain = styled.main`
     background-color: #0F52BA;
     padding: 65px;
 `
-
-interface ShopInterface {
-    data?: JSX.Element,
-}
-
-export default function Shop( { data }: ShopInterface) {
-    return (
-      <StyledMain>
-        
-      </StyledMain>
-    );
-  }
