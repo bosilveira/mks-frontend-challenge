@@ -5,22 +5,16 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { useRouter } from 'next/router';
 import React from 'react';
 import Loading from '@/components/loading';
-import PreLoading from '@/components/preloading';
-import Ready from '@/components/ready';
 import styled from 'styled-components'
+import Disclaimer from '@/components/footer/disclaimer';
 
-const StyledLoading = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  background-color: white;
-  opacity: .5;
-  z-index: 99;
-`
+import { Provider } from "react-redux";
+import { store } from '@/redux/store';
 
 const GlobalStyle = createGlobalStyle`
   :root {
     --headerHeight: 101px;
+    --headerHeightMobile: 48px;
     --footerHeight: 34px;
     --animationTiming: .4s;
   }
@@ -29,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
   }
 
   body {
@@ -36,22 +31,31 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  .wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  main {
+    min-height: calc( 100vh - var(--footerHeight) );
+    padding: calc( var(--headerHeight) + 65px) 65px 0 65px;
+    position: relative;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   button {
     cursor: pointer;
   }
+
+
+
 `
-
-interface ThemeInterface {
-  colors: {
-    primary: string
-  }
-}
-
-const theme: ThemeInterface = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
 
 export type NextPageWithLayout<P = { }, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -61,17 +65,16 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
 
-
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
-
   return (
     <>
+    <Provider store={store}>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Ready/>
         {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
-    </>
+        <Loading/>
+        <Disclaimer/>
+    </Provider>
+  </>
   )
 }
