@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Projeto Next.js com TypeScript
 
-First, run the development server:
+Este projeto consiste numa aplicação web desenvolvida com Next.js, Typescript, Redux Thunk, Styled Components, Jest, React Icons e Dockerizada.
+
+O Next.js foi usado para criar a estrutura da aplicação e gerenciar seus componentes. O Typescript foi usado para fornecer tipagem estática e melhorar a qualidade do código.
+
+O Redux Thunk foi usado para gerenciar o estado da aplicação e permitir que ações assíncronas sejam executadas. O Styled Components foi usado para aplicar estilos aos componentes da aplicação. O Jest foi usado para criar testes unitários e garantir que o código esteja funcionando como esperado. O React Icons foi usado para adicionar ícones ao aplicativo.
+
+Por fim, o projeto foi Dockerizado para que possa ser facilmente implantado em qualquer ambiente de hospedagem.
+
+## Instalação
+
+Para instalar o projeto, siga os passos a seguir:
+
+1. Clone o repositório:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/user/repo.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Entre no diretório do projeto:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+cd repo
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Instale as dependências com o Yarn:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+yarn
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Rode o projeto:
 
-## Learn More
+```bash
+yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Após seguir os passos acima, o projeto estará rodando na porta 3000.
