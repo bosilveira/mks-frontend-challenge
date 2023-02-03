@@ -54,6 +54,9 @@ export const StyledCard = styled.div`
         justify-content: space-between;
         align-items: center;
         margin-right: 18px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
 
 
         .name {
@@ -62,6 +65,9 @@ export const StyledCard = styled.div`
             font-weight: 400;
             font-size: 16px;
             color: #2C2C2C;
+            width: 30%;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
         .quantity {

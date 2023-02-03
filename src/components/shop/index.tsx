@@ -1,13 +1,23 @@
 import { StyledShop } from "./styled";
+import ShopCard from "./card";
 
-interface ShopInterface {
-    data?: JSX.Element,
+interface ShopCardInterface {
+    id?: number,
+    name?: string,
+    brand?: string,
+    description?: string,
+    photo?: string;
+    price?: string
 }
 
-export default function Shop( { data }: ShopInterface) {
+type Data = {
+    data?: ShopCardInterface[]
+}
+
+export default function Shop( { data }: Data ) {
     return (
       <StyledShop>
-        
+        {data?.map((element, index)=><ShopCard data={element} key={index}/>, false)}
       </StyledShop>
     );
   }

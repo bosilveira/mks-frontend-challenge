@@ -64,7 +64,7 @@ export const StyledCart = styled.div<CartProps>`
 
     .list {
         width: 100%;
-        padding: 0 47px 0 60px;
+        padding: 32px 47px 0 60px;
         display: flex;
         gap: 24px;
         flex-direction: column;
@@ -80,6 +80,7 @@ export const StyledCart = styled.div<CartProps>`
         font-size: 28px;
         color: #FFFFFF;
         padding: 0 47px 0 60px;
+        margin: 16px 0;
     }
 
     .checkout {

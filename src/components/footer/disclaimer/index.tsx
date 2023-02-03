@@ -20,7 +20,6 @@ export default function Disclaimer() {
   const [showModal, setShowModal] = React.useState(false);
 
   React.useEffect(() => {
-    console.log('router', router.asPath)
     if (cookies !== 'true' && router.asPath !== '/cookies') {
         setShowModal(true)
     }

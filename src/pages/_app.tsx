@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
 
   main {
     min-height: calc( 100vh - var(--footerHeight) );
-    padding: var(--headerHeight) 65px 0 65px;
+    padding: calc( var(--headerHeight) + 65px) 65px 0 65px;
     position: relative;
   }
 
@@ -52,6 +52,9 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+
+
 `
 
 export type NextPageWithLayout<P = { }, IP = P> = NextPage<P, IP> & {

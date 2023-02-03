@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 
 export const StyledShop = styled.main`
-    position: absolute;
-    width: 100%;
-    height: 101px;
+    position: relative;
+    width: 80vw;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    background-color: #0F52BA;
-    padding: 65px;
+    gap: 16px;
+    background-color: transparent;
+    min-height: calc( 100vh - var(--footerHeight) );
+    padding: calc( 65px + var(--headerHeight) ) 65px;
+    z-index: 0;
 `
+

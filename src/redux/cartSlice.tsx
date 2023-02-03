@@ -1,18 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface ShopCardInterface {
-  id?: number,
-  name?: string,
-  brand?: string,
-  description?: string,
-  photo?: string;
-  price?: string
-}
-
 const initialState = {
-  cart: (typeof window !== "undefined") ? JSON.parse(window.localStorage.getItem("cart") || '[]') : [],
+  cart: (typeof window !== "undefined") ? JSON.parse(window.sessionStorage.getItem("cart") || '[]') : [],
   loading: false,
-  cookies: (typeof window !== "undefined") ? window.localStorage.getItem("cookies") : "false"
+  cookies: (typeof window !== "undefined") ? window.sessionStorage.getItem("cookies") : "false"
 } as any;
 
 const cartSlice = createSlice({
@@ -24,15 +15,41 @@ const cartSlice = createSlice({
       state.loading = false;
       state.cart.push(action.payload);
       if (typeof window !== "undefined") {
-        window.localStorage.setItem("cart", JSON.stringify(state.cart))
+        window.sessionStorage.setItem("cart", JSON.stringify(state.cart))
       } 
     },
 
     removeItem: (state, action) => {
       state.loading = false;
-      state.cart.push(...action.payload);
+      let index = -1;
+      for (let i = 0; i < state.cart.length; i++ ) {
+        if (state.cart[i].id === action.payload) {
+          index = i;
+          break
+        }
+      }
+      if (index > -1) {
+        state.cart.splice(index,1)
+      }
       if (typeof window !== "undefined") {
-        window.localStorage.setItem("cart", JSON.stringify(state.cart))
+        window.sessionStorage.setItem("cart", JSON.stringify(state.cart))
+      } 
+    },
+
+    removeAllOfKind: (state, action) => {
+      state.loading = false;
+      state.cart = [...state.cart.filter((element: any)=>element?.id !== action.payload)]
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem("cart", JSON.stringify(state.cart))
+      } 
+    },
+
+
+    clearCart: (state, action) => {
+      state.loading = false;
+      state.cart = []
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem("cart", JSON.stringify(state.cart))
       } 
     },
 
@@ -40,13 +57,13 @@ const cartSlice = createSlice({
       state.loading = false;
       state.cookies = 'true';
       if (typeof window !== "undefined") {
-        window.localStorage.setItem("cookies", 'true')
+        window.sessionStorage.setItem("cookies", 'true')
       } 
     },
   },
 
 });
 
-export const { addItem, removeItem, consentCookie } =  cartSlice.actions;
+export const { addItem, removeItem, removeAllOfKind, clearCart, consentCookie } =  cartSlice.actions;
 
 export default cartSlice.reducer;

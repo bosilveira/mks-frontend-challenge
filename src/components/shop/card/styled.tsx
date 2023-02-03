@@ -50,6 +50,9 @@ export const StyledCard = styled.div`
         font-size: 16px;
         line-height: 19px;
         color: #2C2C2C;
+        height: 10%;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .price {
@@ -72,6 +75,10 @@ export const StyledCard = styled.div`
         font-size: 10px;
         line-height: 12px;
         color: #2C2C2C;
+        height: 10%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
     }
 
     button {

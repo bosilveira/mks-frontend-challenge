@@ -8,7 +8,6 @@ function Loading() {
   
     React.useEffect(() => {
         router.isReady && setTimeout(() =>{setIsPageLoading(false)},1000);
-        router.isReady && console.log('isReady')
     },[router])
     
     React.useEffect(() => {
@@ -30,7 +29,7 @@ function Loading() {
         }
     },[])
 
-    return isPageLoading ? (<StyledLoading> Ready </StyledLoading>) : null
+    return isPageLoading ? (<StyledLoading>  </StyledLoading>) : null
   }
   
   export default Loading
