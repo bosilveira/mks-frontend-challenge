@@ -46,12 +46,12 @@ const Cookies: NextPageWithLayout = () => {
 }
 
 Cookies.getLayout = function getLayout(page: ReactElement) {
-    const router = useRouter();
+    //const router = useRouter();
     return (<>
         <Head>
             <title>MKS Sistemas</title>
         </Head>
-        <Header logo={<LogoMKS/>} menu={<Button onClick={()=>router.push('/')} title={'Voltar para loja'}><><MdArrowBackIos/>Voltar</></Button>}/>
+        <Header logo={<LogoMKS/>} menu={<Button onClick={()=>window.location.href="/"} title={'Voltar para loja'}><><MdArrowBackIos/>Voltar</></Button>}/>
             {page}
         <Footer/>
     </>);
